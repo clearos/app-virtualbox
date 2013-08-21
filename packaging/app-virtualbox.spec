@@ -1,7 +1,7 @@
 
 Name: app-virtualbox
 Epoch: 1
-Version: 1.0.0
+Version: 1.4.70
 Release: 1%{dist}
 Summary: VirtualBox Server - Core
 License: LGPLv3
