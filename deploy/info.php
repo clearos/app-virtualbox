@@ -5,12 +5,12 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'virtualbox';
-$app['version'] = '1.5.0';
+$app['version'] = '1.6.0';
 $app['release'] = '1';
-$app['vendor'] = 'ClearFoundation';
-$app['packager'] = 'ClearFoundation';
-$app['license'] = 'GPLv3';
-$app['license_core'] = 'LGPLv3';
+$app['vendor'] = 'eLogic';
+$app['packager'] = 'eLogic';
+$app['license'] = 'Proprietary';
+$app['license_core'] = 'Proprietary';
 $app['description'] = lang('virtualbox_app_description');
 
 /////////////////////////////////////////////////////////////////////////////
@@ -19,16 +19,15 @@ $app['description'] = lang('virtualbox_app_description');
 
 $app['name'] = lang('virtualbox_app_name');
 $app['category'] = lang('base_category_server');
-$app['subcategory'] = 'Virtualization'; // FIXME
-$app['menu_enabled'] = FALSE;
+$app['subcategory'] = lang('base_subcategory_virtualization');
 
 /////////////////////////////////////////////////////////////////////////////
 // Packaging
 /////////////////////////////////////////////////////////////////////////////
 
-$app['core_only'] = TRUE;
-
 $app['core_requires'] = array(
+    'phpvirtualbox',
+    'virtualbox',
     'gcc',
     'kernel-devel',
     'kernel-headers',

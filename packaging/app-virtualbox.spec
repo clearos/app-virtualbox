@@ -1,20 +1,28 @@
 
 Name: app-virtualbox
 Epoch: 1
-Version: 1.5.0
+Version: 1.6.0
 Release: 1%{dist}
-Summary: VirtualBox Server - Core
-License: LGPLv3
-Group: ClearOS/Libraries
-Source: app-virtualbox-%{version}.tar.gz
+Summary: VirtualBox Server
+License: Proprietary
+Group: ClearOS/Apps
+Packager: eLogic
+Vendor: eLogic
+Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
+Requires: %{name}-core = 1:%{version}-%{release}
+Requires: app-base
 
 %description
 The VirtualBox Server app provides support for implementing VirtualBox on the server.
 
 %package core
 Summary: VirtualBox Server - Core
+License: Proprietary
+Group: ClearOS/Libraries
 Requires: app-base-core
+Requires: phpvirtualbox
+Requires: virtualbox
 Requires: gcc
 Requires: kernel-devel
 Requires: kernel-headers
@@ -33,6 +41,9 @@ mkdir -p -m 755 %{buildroot}/usr/clearos/apps/virtualbox
 cp -r * %{buildroot}/usr/clearos/apps/virtualbox/
 
 
+%post
+logger -p local6.notice -t installer 'app-virtualbox - installing'
+
 %post core
 logger -p local6.notice -t installer 'app-virtualbox-core - installing'
 
@@ -44,6 +55,11 @@ fi
 
 exit 0
 
+%preun
+if [ $1 -eq 0 ]; then
+    logger -p local6.notice -t installer 'app-virtualbox - uninstalling'
+fi
+
 %preun core
 if [ $1 -eq 0 ]; then
     logger -p local6.notice -t installer 'app-virtualbox-core - uninstalling'
@@ -51,6 +67,12 @@ if [ $1 -eq 0 ]; then
 fi
 
 exit 0
+
+%files
+%defattr(-,root,root)
+/usr/clearos/apps/virtualbox/controllers
+/usr/clearos/apps/virtualbox/htdocs
+/usr/clearos/apps/virtualbox/views
 
 %files core
 %defattr(-,root,root)
