@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'virtualbox';
-$app['version'] = '1.6.0';
+$app['version'] = '1.6.5';
 $app['release'] = '1';
 $app['vendor'] = 'eLogic';
 $app['packager'] = 'eLogic';

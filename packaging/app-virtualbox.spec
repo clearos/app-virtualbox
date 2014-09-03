@@ -1,7 +1,7 @@
 
 Name: app-virtualbox
 Epoch: 1
-Version: 1.6.0
+Version: 1.6.5
 Release: 1%{dist}
 Summary: VirtualBox Server
 License: Proprietary
@@ -70,15 +70,10 @@ exit 0
 
 %files
 %defattr(-,root,root)
-/usr/clearos/apps/virtualbox/controllers
-/usr/clearos/apps/virtualbox/htdocs
-/usr/clearos/apps/virtualbox/views
 
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/virtualbox/packaging
-%exclude /usr/clearos/apps/virtualbox/tests
 %dir /usr/clearos/apps/virtualbox
 /usr/clearos/apps/virtualbox/deploy
 /usr/clearos/apps/virtualbox/language
-/usr/clearos/apps/virtualbox/libraries
